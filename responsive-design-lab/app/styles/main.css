@@ -1,0 +1,51 @@
+/* main.css */
+
+.container {
+  background: #eee;
+  overflow: auto;
+}
+
+.container .col {
+    width: 27%;
+    padding: 30px 3.15% 0;
+    float: left;
+}
+/* Ketika media >= 48em atau 768px maka akan membuat container colomn menjadi 3 baris*/
+/* TODO 3 - style the page */
+
+/* TODO 4 - use media query */
+@media screen and (max-width: 48rem) {
+    .container .col {
+        width: 95%;
+    }
+}
+/*
+* Untuk content mudah dibaca, kita menambahkan media query saat lebar browser
+menjadi < 48rem atau < 768px. Penggunaaan rem sangat dianjurkan untuk satuan yang relatif.
+Ketika media sama dengan configurasi pada css maka tata letak dari
+tiga kolom menjadi satu kolom ( width 95%) dengan mengubah lebar masing-masing dari tiga div untuk mengisi
+halaman.
+*/
+/* TODO 5.2 - use flexbox */
+.container {
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
+    background: #eee;
+    overflow: auto;
+}
+.container .col {
+    flex: 1;
+    padding: 1rem; /* Jarak Suatu component*/
+}
+
+/* TODO 5.4 - use media query with Flexbox*/
+/* Sama dngan todo 3 hanya saya pada todo 5.4 sudah ditambahkan flexbox*/
+@media screen and (max-width: 48rem) {
+    .container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-flow: column;
+    }
+}
