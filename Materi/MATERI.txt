@@ -1,0 +1,38 @@
+Progressive Web Apps - Codelabs:
+
+Introduction (Rule)
+1. Keterlambatan maksimal 15 menit dari
+   jam 8.00 (SI-1)
+   jam 15.20 (SI-3)
+2. Menempati tempat duduk dengan urutan: 
+   kanan depan -> belakang
+   !! Pojok kiri belakang (dan sekitarnya) akan mendapat tugas tambahan.
+3. Hadir, presensi (ttd) dan langsung menyiapkan aplikasi
+   -> seting labs, dan kode program.
+4. Jika Dosen/Instruktur belum/tidak hadir, 
+   kerjakan codelab sesuai dengan pertemuan.
+5. Proses praktikum:
+   Latihan dari panduan (codelab) & 
+   tugas dari instruktur/Dosen
+   Hasil tugas diberikan komentar berupa penjelasan pada baris kode yang berkesesuaian
+   Hasil tugas di-push ke akun github masing2 
+   timestamp (waktu praktikum) digunakan sebagai salah satu bukti mengumpulkan LAPORAN
+6. Menjaga ketenangan selama praktikum berlangsung
+   Membuka hal yang tidak berkaitan dengan topik dan praktikum (misal: medsos, game online) -> E
+   Mencontek/menjiplak karya, Berbuat curang, -> E
+
+Materi
+1. Setting Up the Labs
+2. Lab: Responsive Design
+3. Lab: Responsive Design
+4. Lab: Responsive Images
+5. Lab: Scripting the Service Worker
+6. Lab: Offline Quickstart
+7. Submission A
+8. Lab: Promises
+9. Lab: Fetch API
+10. Lab: Caching Files with Service Worker
+11. Lab: IndexedDB
+12. Lab: Auditing with Lighthouse
+13. Lab: Add to Homescreen
+14. Submission B
