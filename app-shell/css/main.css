@@ -1,3 +1,19 @@
+/*
+Copyright 2016 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
 article {
   align-items: center;
   display: flex;
@@ -20,11 +36,10 @@ img {
   Membaerikan efek transisi pada kita mengubah resolusi device
 */
 
-img#sfo {
+img#sfo,img.sfo {
   transition: width 1s;
   max-width: 50vw;
 }
-
 
 /* TODO 5.1 - add a media query
 jika 1px - 700px < maka akan menggunakan configurasi css dibawah
@@ -32,7 +47,7 @@ jika > maka akan menggunakan configurasi atasnya
 */
 
 @media screen and (max-width: 700px) {
-  img#sfo {
+  img#sfo,img.sfo {
     max-width: 90vw;
     width: 90vw;
   }
@@ -48,4 +63,24 @@ figcaption {
 
 figure {
   margin: 1em 0 1em 0;
+}
+
+h1 {
+  color: #bb021e;
+  font-family: 'Roboto condensed', sans-serif;
+  font-size: 6vw;
+  font-weight: 500;
+  margin: 0 0 1em 0;
+  padding: 0 0 1em 0;
+  border-bottom: 1px solid #ddd;
+}
+
+p {
+  color: #444;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.6em;
+  margin: 0 auto 1em auto;
+  text-align: justify;
+  max-width: 50em;
 }
