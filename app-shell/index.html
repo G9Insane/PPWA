@@ -26,5 +26,20 @@
 
 <script src="js/materialize.min.js"></script>
 <script src="js/nav.js"></script>
+<!-- Menambahkan javascript untuk meregister file service worker-->
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('galang-sw-app-shell.js')
+        /*Promises setelah teregister menampilkan pesan pada console browser*/
+            .then(function(registration) {
+                console.log('Registered:', registration);
+            })
+            /*Promises handle error menampilkan pesan pada console browser*/
+            .catch(function(error) {
+                console.log('Registration failed: ', error);
+            });
+    }
+
+</script>
 </body>
 </html>
