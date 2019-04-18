@@ -2,7 +2,10 @@ var CACHE_NAME = 'galang-cache';/*Memberi nama variable pada cache service worke
 var urlsToCache = [
     '.',/*cache semua data yang ada di root server*/
     'index.html',
-    'styles/main.css'
+    'styles/main.css',
+    'images/space1.jpg',
+    'images/space2.jpg',
+    'images/space3.jpg',
 ];
 /*melakukan installasi service worker*/
 self.addEventListener('install', function(event) {
@@ -14,6 +17,9 @@ self.addEventListener('install', function(event) {
                 return cache.addAll(urlsToCache);
             })
     );
+});
+self.addEventListener('activate', function(event) {
+    self.skipWaiting();
 });
 /*melakukan fetch atau mengambil data pada cache service worker yang telah di registrasi*/
 self.addEventListener('fetch', function(event) {
