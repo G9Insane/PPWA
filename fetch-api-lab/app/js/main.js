@@ -15,57 +15,135 @@ limitations under the License.
 */
 
 // helper functions ----------
-
+//method menampilkan data hasil
 function logResult(result) {
   console.log(result);
-}
 
+
+  result.forEach(function(value,index) {
+    const ul = document.getElementById("data-response");
+    const li = document.createElement('li');
+    const l2 = document.createElement('li');
+    ul.appendChild(li);
+    ul.appendChild(l2);
+    li.innerText = 'Name : ' +value.name;
+    l2.innerText = 'Email : ' +value.email;
+
+  });
+}
+//method menampilkan data error
 function logError(error) {
   console.log('Looks like there was a problem:', error);
+}
+//method validasi jika response tidak = ok maka akan menampilkan
+//statusText pada response
+//selain itu tampilkan response
+function validateResponse(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
+}
+//method membaca object dari sebagai json
+function readResponseAsJSON(response) {
+  return response.json();
+}
+//method membaca object dari sebagai blob
+function readResponseAsBlob(response) {
+  return response.blob();
+}
+//method membaca object dari sebagai text
+function readResponseAsText(response) {
+  return response.text();
+}
+//method untuk menampilkan gambar pada halaman
+//dalam id 'im-container'
+//menambahkan tag <img> pada id tersebut
+//dengan src dengan format blob
+function showImage(responseAsBlob) {
+  const container = document.getElementById('img-container');
+  const imgElem = document.createElement('img');
+  container.appendChild(imgElem);
+  imgElem.src = URL.createObjectURL(responseAsBlob);
+}
+//method untuk menampilkan text pada halaman
+//dengan id 'message' sebagai selector dan mengubah text
+//pada selector tersebut
+
+function showText(responseAsText) {
+  const message = document.getElementById('message');
+  message.textContent = responseAsText;
+}
+//method untuk menampilkan url request
+//pada console
+//dan ukuran byte
+function logSize(response) {
+  const url = response.url;
+  const size = response.headers.get('content-length');
+  console.log(`${url} is ${size} bytes`);
 }
 
 
 // Fetch JSON ----------
-
+// Mengambil data dengan method fetch
+// ke pada file animals.json
 function fetchJSON() {
-  // TODO
+  fetch('examples/animals.json')
+      .then(validateResponse)
+      .then(readResponseAsJSON)
+      .then(logResult)
+      .catch(logError);
 }
+// menambahkan event listener pada id json-btn halaman web
+// dan jika di click akan mentrigger method fetchJSON
 const jsonButton = document.getElementById('json-btn');
 jsonButton.addEventListener('click', fetchJSON);
 
 
 // Fetch Image ----------
-
+// mengambil data dengan method fetch
+// ke file fetching.jpg
 function fetchImage() {
-  // TODO
+  fetch('examples/fetching.jpg')
+      .then(validateResponse)
+      .then(readResponseAsBlob)
+      .then(showImage)
+      .catch(logError);
 }
+// menambahkan event listener pada id img-btn halaman web
+// dan jika di click akan mentrigger method fetchImage
 const imgButton = document.getElementById('img-btn');
 imgButton.addEventListener('click', fetchImage);
 
 
 // Fetch text ----------
-
+// Mengambil data dengan method fetch
+// ke pada file words.txt
 function fetchText() {
-  // TODO
+  fetch('examples/words.txt')
+      .then(validateResponse)
+      .then(readResponseAsText)
+      .then(showText)
+      .catch(logError);
 }
+// menambahkan event listener pada id text-btn halaman web
+// dan jika di click akan mentrigger method fetchText
 const textButton = document.getElementById('text-btn');
 textButton.addEventListener('click', fetchText);
 
-
-// HEAD request ----------
-
-function headRequest() {
-  // TODO
+// Fetch JSON ----------
+// Mengambil data dengan method fetch
+// ke pada file animals.json
+function fetchData() {
+  fetch('http://jsonplaceholder.typicode.com/users')
+      .then(validateResponse)
+      .then(readResponseAsJSON)
+      .then(logResult)
+      .catch(logError);
 }
-const headButton = document.getElementById('head-btn');
-headButton.addEventListener('click', headRequest);
+// menambahkan event listener pada id json-btn halaman web
+// dan jika di click akan mentrigger method fetchJSON
+const dataButton = document.getElementById('data-btn');
+dataButton.addEventListener('click', fetchData);
 
 
-// POST request ----------
-
-/* NOTE: Never send unencrypted user credentials in production! */
-function postRequest() {
-  // TODO
-}
-const postButton = document.getElementById('post-btn');
-postButton.addEventListener('click', postRequest);
