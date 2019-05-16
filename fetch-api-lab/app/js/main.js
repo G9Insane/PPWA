@@ -18,18 +18,6 @@ limitations under the License.
 //method menampilkan data hasil
 function logResult(result) {
   console.log(result);
-
-
-  result.forEach(function(value,index) {
-    const ul = document.getElementById("data-response");
-    const li = document.createElement('li');
-    const l2 = document.createElement('li');
-    ul.appendChild(li);
-    ul.appendChild(l2);
-    li.innerText = 'Name : ' +value.name;
-    l2.innerText = 'Email : ' +value.email;
-
-  });
 }
 //method menampilkan data error
 function logError(error) {
@@ -131,19 +119,33 @@ function fetchText() {
 const textButton = document.getElementById('text-btn');
 textButton.addEventListener('click', fetchText);
 
-// Fetch JSON ----------
+// Fetch Data ----------
 // Mengambil data dengan method fetch
-// ke pada file animals.json
+// ke url http://jsonplaceholder.typicode.com/users
 function fetchData() {
   fetch('http://jsonplaceholder.typicode.com/users')
       .then(validateResponse)
       .then(readResponseAsJSON)
-      .then(logResult)
+      .then(dataResult)
       .catch(logError);
 }
-// menambahkan event listener pada id json-btn halaman web
-// dan jika di click akan mentrigger method fetchJSON
+// menambahkan event listener pada id data-btn halaman web
+// dan jika di click akan mentrigger method fetchData
 const dataButton = document.getElementById('data-btn');
 dataButton.addEventListener('click', fetchData);
 
+//method data result untuk menampilkan hasil
+//respon ke html dengan id data-response
+function dataResult(result) {
+  console.log(result);
+  result.forEach(function(value,index) {
+    const ul = document.getElementById("data-response");
+    const li = document.createElement('li');
+    const l2 = document.createElement('li');
+    ul.appendChild(li);
+    ul.appendChild(l2);
+    li.innerText = 'Name : ' +value.name;
+    l2.innerText = 'Email : ' +value.email;
+  });
+}
 
