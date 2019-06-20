@@ -121,9 +121,9 @@ textButton.addEventListener('click', fetchText);
 
 // Fetch Data ----------
 // Mengambil data dengan method fetch
-// ke url http://jsonplaceholder.typicode.com/users
+// ke url https://jsonplaceholder.typicode.com/users
 function fetchData() {
-  fetch('http://jsonplaceholder.typicode.com/users')
+  fetch('https://jsonplaceholder.typicode.com/users')
       .then(validateResponse)
       .then(readResponseAsJSON)
       .then(dataResult)
